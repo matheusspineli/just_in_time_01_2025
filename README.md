@@ -165,7 +165,7 @@ Armazena as movimentações relacionadas à fabricação e aos pedidos.
 
 O Diagrama Entidade-Relacionamento representa a estrutura do banco de dados utilizado no projeto.
 
-![Diagrama Entidade-Relacionamento](assets/Captura%20de%20tela%202026-09-04%20073940.png)
+![Diagrama Entidade-Relacionamento](justi_in_time/assets/Captura%20de%20tela%202026-09-04%20073940.png)
 
 ---
 
@@ -225,7 +225,7 @@ justi_in_time/
 
 Tela utilizada para realizar o cadastro de um novo usuário.
 
-![Cadastrar usuário](assets/Captura%20de%20tela%202026-09-04%20084836.png)
+![Cadastrar usuário](justi_in_time/assets/Captura%20de%20tela%202026-09-04%20084836.png)
 
 ---
 
@@ -233,7 +233,7 @@ Tela utilizada para realizar o cadastro de um novo usuário.
 
 Tela responsável por apresentar os usuários cadastrados no sistema.
 
-![Listar usuários](assets/Captura%20de%20tela%202026-09-04%20084928.png)
+![Listar usuários](justi_in_time/assets/Captura%20de%20tela%202026-09-04%20084928.png)
 
 ---
 
@@ -241,7 +241,7 @@ Tela responsável por apresentar os usuários cadastrados no sistema.
 
 Permite consultar um usuário específico através de seu ID.
 
-![Buscar usuário](assets/Captura%20de%20tela%202026-09-04%20084956.png)
+![Buscar usuário](justi_in_time/assets/Captura%20de%20tela%202026-09-04%20084956.png)
 
 ---
 
@@ -249,7 +249,7 @@ Permite consultar um usuário específico através de seu ID.
 
 Permite alterar as informações de um usuário cadastrado.
 
-![Atualizar usuário](assets/Captura%20de%20tela%202026-09-04%20085219.png)
+![Atualizar usuário](justi_in_time/assets/Captura%20de%20tela%202026-09-04%20085219.png)
 
 ---
 
@@ -257,7 +257,7 @@ Permite alterar as informações de um usuário cadastrado.
 
 Permite remover um usuário cadastrado.
 
-![Excluir usuário](assets/Captura%20de%20tela%202026-09-04%20085246.png)
+![Excluir usuário](justi_in_time/assets/Captura%20de%20tela%202026-09-04%20085246.png)
 
 ---
 
@@ -267,7 +267,7 @@ Permite remover um usuário cadastrado.
 
 Tela utilizada para cadastrar um novo produto no sistema.
 
-![Cadastrar produto](assets/Captura%20de%20tela%202026-09-04%20085731.png)
+![Cadastrar produto](justi_in_time/assets/Captura%20de%20tela%202026-09-04%20085731.png)
 
 ---
 
@@ -275,7 +275,7 @@ Tela utilizada para cadastrar um novo produto no sistema.
 
 Permite consultar um produto através de seu ID.
 
-![Buscar produto](assets/Captura%20de%20tela%202026-09-04%20090114.png)
+![Buscar produto](justi_in_time/assets/Captura%20de%20tela%202026-09-04%20090114.png)
 
 ---
 
@@ -283,7 +283,7 @@ Permite consultar um produto através de seu ID.
 
 Permite modificar as informações de um produto.
 
-![Atualizar produto](assets/Captura%20de%20tela%202026-09-04%20090559.png)
+![Atualizar produto](justi_in_time/assets/Captura%20de%20tela%202026-09-04%20090559.png)
 
 ---
 
@@ -291,7 +291,7 @@ Permite modificar as informações de um produto.
 
 Permite excluir um produto do sistema quando não existem movimentações relacionadas a ele.
 
-![Excluir produto](assets/Captura%20de%20tela%202026-09-04%20090651.png)
+![Excluir produto](justi_in_time/assets/Captura%20de%20tela%202026-09-04%20090651.png)
 
 ---
 
@@ -301,7 +301,7 @@ Permite excluir um produto do sistema quando não existem movimentações relaci
 
 Apresenta todas as movimentações de produção cadastradas.
 
-![Listar produção](assets/Captura%20de%20tela%202026-09-04%20101208.png)
+![Listar produção](justi_in_time/assets/Captura%20de%20tela%202026-09-04%20101208.png)
 
 ---
 
@@ -309,7 +309,7 @@ Apresenta todas as movimentações de produção cadastradas.
 
 Permite consultar uma movimentação específica.
 
-![Buscar produção](assets/Captura%20de%20tela%202026-09-04%20101224.png)
+![Buscar produção](justi_in_time/assets/Captura%20de%20tela%202026-09-04%20101224.png)
 
 ---
 
@@ -317,7 +317,7 @@ Permite consultar uma movimentação específica.
 
 Permite registrar uma nova movimentação de produção.
 
-![Cadastrar produção](assets/Captura%20de%20tela%202026-09-04%20101236.png)
+![Cadastrar produção](justi_in_time/assets/Captura%20de%20tela%202026-09-04%20101236.png)
 
 ---
 
@@ -325,7 +325,7 @@ Permite registrar uma nova movimentação de produção.
 
 Permite excluir uma movimentação cadastrada.
 
-![Excluir produção](assets/Captura%20de%20tela%202026-09-04%20101257.png)
+![Excluir produção](justi_in_time/assets/Captura%20de%20tela%202026-09-04%20101257.png)
 
 ---
 
@@ -605,39 +605,39 @@ Responsável por funções intermediárias, como autenticação.
 
 ## Usuários
 
-![Cadastrar usuário](assets/Captura%20de%20tela%202026-09-04%20084836.png)
+![Cadastrar usuário](justi_in_time/assets/Captura%20de%20tela%202026-09-04%20084836.png)
 
-![Listar usuários](assets/Captura%20de%20tela%202026-09-04%20084928.png)
+![Listar usuários](justi_in_time/assets/Captura%20de%20tela%202026-09-04%20084928.png)
 
-![Buscar usuário](assets/Captura%20de%20tela%202026-09-04%20084956.png)
+![Buscar usuário](justi_in_time/assets/Captura%20de%20tela%202026-09-04%20084956.png)
 
-![Atualizar usuário](assets/Captura%20de%20tela%202026-09-04%20085219.png)
+![Atualizar usuário](justi_in_time/assets/Captura%20de%20tela%202026-09-04%20085219.png)
 
-![Excluir usuário](assets/Captura%20de%20tela%202026-09-04%20085246.png)
+![Excluir usuário](justi_in_time/assets/Captura%20de%20tela%202026-09-04%20085246.png)
 
 ---
 
 ## Produtos
 
-![Cadastrar produto](assets/Captura%20de%20tela%202026-09-04%20085731.png)
+![Cadastrar produto](justi_in_time/assets/Captura%20de%20tela%202026-09-04%20085731.png)
 
-![Buscar produto](assets/Captura%20de%20tela%202026-09-04%20090114.png)
+![Buscar produto](justi_in_time/assets/Captura%20de%20tela%202026-09-04%20090114.png)
 
-![Atualizar produto](assets/Captura%20de%20tela%202026-09-04%20090559.png)
+![Atualizar produto](justi_in_time/assets/Captura%20de%20tela%202026-09-04%20090559.png)
 
-![Excluir produto](assets/Captura%20de%20tela%202026-09-04%20090651.png)
+![Excluir produto](justi_in_time/assets/Captura%20de%20tela%202026-09-04%20090651.png)
 
 ---
 
 ## Produção
 
-![Listar produção](assets/Captura%20de%20tela%202026-09-04%20101208.png)
+![Listar produção](justi_in_time/assets/Captura%20de%20tela%202026-09-04%20101208.png)
 
-![Buscar produção](assets/Captura%20de%20tela%202026-09-04%20101224.png)
+![Buscar produção](justi_in_time/assets/Captura%20de%20tela%202026-09-04%20101224.png)
 
-![Cadastrar produção](assets/Captura%20de%20tela%202026-09-04%20101236.png)
+![Cadastrar produção](justi_in_time/assets/Captura%20de%20tela%202026-09-04%20101236.png)
 
-![Excluir produção](assets/Captura%20de%20tela%202026-09-04%20101257.png)
+![Excluir produção](justi_in_time/assets/Captura%20de%20tela%202026-09-04%20101257.png)
 
 ---
 
