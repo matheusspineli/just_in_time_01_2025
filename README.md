@@ -1,6 +1,10 @@
 # Just in Time
 
-Sistema web para **controle de estoque e produção sob demanda (Just in Time)**, desenvolvido com Node.js/Express no backend e HTML, CSS e JavaScript puro no frontend. A aplicação permite cadastrar produtos, gerenciar usuários com login autenticado via JWT e registrar movimentações de produção (fabricação e pedidos), atualizando o estoque automaticamente e alertando quando ele fica abaixo do mínimo definido.
+Sistema web para **controle de estoque e produção sob demanda (Just in Time)**, desenvolvido com Node.js/Express no backend e HTML, CSS e JavaScript puro no frontend.
+
+A aplicação permite cadastrar produtos, gerenciar usuários com login autenticado via JWT e registrar movimentações de produção, atualizando o estoque automaticamente e alertando quando ele fica abaixo do mínimo definido.
+
+---
 
 ## Índice
 
@@ -13,161 +17,348 @@ Sistema web para **controle de estoque e produção sob demanda (Just in Time)**
 - [Endpoints da API](#endpoints-da-api)
 - [Screenshots](#screenshots)
 
+---
+
 ## Visão geral
 
-A aplicação foi pensada para pequenos processos produtivos que trabalham no modelo Just in Time: cada produto tem uma quantidade em estoque e um estoque mínimo, e toda entrada (fabricação) ou saída (pedido) de itens é registrada como uma movimentação de produção associada a um usuário. Ao registrar uma movimentação, o sistema recalcula o estoque do produto automaticamente e sinaliza quando ele cai abaixo do mínimo configurado.
+A aplicação foi desenvolvida para pequenos processos produtivos que trabalham no modelo **Just in Time**.
+
+Cada produto possui uma quantidade em estoque e um estoque mínimo. Toda entrada, realizada por meio de fabricação, ou saída, realizada por meio de pedido, é registrada como uma movimentação.
+
+Ao registrar uma movimentação, o estoque do produto é atualizado automaticamente e o sistema verifica se o estoque está abaixo do mínimo definido.
+
+---
 
 ## Funcionalidades
 
-- **Usuários**: cadastro, listagem, busca, atualização e exclusão de usuários.
-- **Autenticação**: login com geração de token JWT, consulta do usuário logado e logout.
-- **Produtos**: cadastro com nome, descrição, custo, quantidade em estoque e estoque mínimo, além de listagem, busca, atualização e exclusão (com bloqueio de exclusão para produtos que já possuem movimentações).
-- **Produção**: registro de movimentações do tipo `fabricado` (entrada) ou `pedido` (saída), com validação de estoque disponível, atualização automática do estoque do produto e alerta de estoque abaixo do mínimo.
-- **Frontend**: telas de login, página principal, cadastro de produtos e gestão de produção.
+### Usuários
+
+- Cadastro de usuários
+- Listagem de usuários
+- Busca de usuário por ID
+- Atualização de usuário
+- Exclusão de usuário
+
+### Autenticação
+
+- Login
+- Geração de token JWT
+- Consulta do usuário autenticado
+- Logout
+
+### Produtos
+
+- Cadastro de produtos
+- Listagem de produtos
+- Busca de produtos
+- Atualização de produtos
+- Exclusão de produtos
+- Controle de quantidade em estoque
+- Controle de estoque mínimo
+- Bloqueio de exclusão de produtos com movimentações
+
+### Produção
+
+- Cadastro de movimentações
+- Movimentação do tipo `fabricado`
+- Movimentação do tipo `pedido`
+- Entrada automática no estoque
+- Saída automática do estoque
+- Validação de estoque disponível
+- Alerta de estoque abaixo do mínimo
+- Listagem das movimentações
+- Busca de movimentações
+- Atualização de movimentações
+- Exclusão de movimentações
+
+### Frontend
+
+- Tela de login
+- Página principal
+- Cadastro de produtos
+- Gestão de produção
+- Interface simples com HTML, CSS e JavaScript
+
+---
 
 ## Modelo de dados
 
-O banco relaciona três entidades principais — `Usuario`, `Produto` e `Producao` — onde cada movimentação de produção pertence a um usuário e a um produto:
+O sistema possui três entidades principais:
 
-![Diagrama entidade-relacionamento](assets/Captura%20de%20tela%202026-09-04%20073940.png)
+- `Usuario`
+- `Produto`
+- `Producao`
+
+A entidade `Producao` possui relacionamento com `Usuario` e `Produto`.
+
+### Diagrama Entidade-Relacionamento
+
+![Diagrama Entidade-Relacionamento](assets/Captura%20de%20tela%202026-09-04%20073940.png)
+
+---
 
 ## Tecnologias
 
-**Backend**
-- Node.js + Express
-- Prisma ORM (adapter MariaDB/MySQL)
-- JSON Web Token (JWT) para autenticação
-- CORS e dotenv
+### Backend
 
-**Frontend**
-- HTML5, CSS3 e JavaScript puro (sem frameworks)
+- Node.js
+- Express
+- Prisma ORM
+- MySQL/MariaDB
+- JWT
+- CORS
+- dotenv
 
-**Testes de API**
-- Insomnia (coleção incluída em `backend/api/insomnia.json`)
+### Frontend
+
+- HTML5
+- CSS3
+- JavaScript puro
+
+### Testes
+
+- Insomnia
+
+---
 
 ## Estrutura do projeto
 
-```
+```text
 justi_in_time/
-├── assets/                 # Diagramas e capturas de tela usados neste README
+│
+├── assets/
+│   ├── Captura de tela 2026-09-04 073940.png
+│   ├── Captura de tela 2026-09-04 084836.png
+│   ├── Captura de tela 2026-09-04 084928.png
+│   ├── Captura de tela 2026-09-04 084956.png
+│   ├── Captura de tela 2026-09-04 085219.png
+│   ├── Captura de tela 2026-09-04 085246.png
+│   ├── Captura de tela 2026-09-04 085731.png
+│   ├── Captura de tela 2026-09-04 090114.png
+│   ├── Captura de tela 2026-09-04 090559.png
+│   ├── Captura de tela 2026-09-04 090651.png
+│   ├── Captura de tela 2026-09-04 101208.png
+│   ├── Captura de tela 2026-09-04 101224.png
+│   ├── Captura de tela 2026-09-04 101236.png
+│   └── Captura de tela 2026-09-04 101257.png
+│
 ├── backend/
 │   └── api/
-│       ├── prisma/         # Schema e migrações do banco de dados
+│       ├── prisma/
 │       ├── src/
-│       │   ├── controllers/  # Regras de negócio (usuário, produto, produção, login)
-│       │   ├── middleware/   # Middleware de autenticação JWT
-│       │   ├── routes/       # Rotas da API
-│       │   └── data/         # Configuração do cliente Prisma
-│       ├── insomnia.json   # Coleção de testes da API
-│       └── server.js       # Ponto de entrada da API
+│       │   ├── controllers/
+│       │   ├── middleware/
+│       │   ├── routes/
+│       │   └── data/
+│       │
+│       ├── insomnia.json
+│       └── server.js
+│
 └── frontend/
-    ├── index.html         # Tela de login
-    ├── principal.html     # Página principal / menu
-    ├── produtos.html      # Cadastro e listagem de produtos
-    ├── producao.html      # Gestão de produção
+    ├── index.html
+    ├── principal.html
+    ├── produtos.html
+    ├── producao.html
     └── style.css
 ```
+
+---
 
 ## Como executar
 
 ### Pré-requisitos
+
 - Node.js
-- Um banco de dados MySQL/MariaDB
+- MySQL ou MariaDB
+- Git
 
 ### Backend
 
+Entre na pasta da API:
+
 ```bash
 cd justi_in_time/backend/api
+```
+
+Instale as dependências:
+
+```bash
 npm install
 ```
 
-Crie um arquivo `.env` na pasta `backend/api` com as variáveis:
+Crie um arquivo `.env` na pasta `backend/api`:
 
-```
+```env
 DATABASE_URL="mysql://usuario:senha@localhost:3306/nome_do_banco"
 JWT_SECRET="sua_chave_secreta"
 PORT=3000
 ```
 
-Rode as migrações do Prisma e inicie o servidor:
+Execute as migrações do Prisma:
 
 ```bash
 npx prisma migrate dev
+```
+
+Inicie o servidor:
+
+```bash
 npm run dev
 ```
 
-A API ficará disponível em `http://localhost:3000`.
+A API ficará disponível em:
+
+```text
+http://localhost:3000
+```
 
 ### Frontend
 
-O frontend é composto por páginas estáticas. Basta abrir o arquivo `frontend/index.html` no navegador (ou servi-lo com uma extensão como o Live Server) para acessar a tela de login e navegar pela aplicação.
+Abra o arquivo:
 
-## Endpoints da API
+```text
+frontend/index.html
+```
 
-### Usuários — `/usuario`
+Também é possível utilizar o **Live Server** do VS Code.
+
+---
+
+# Endpoints da API
+
+## Usuários
+
 | Método | Rota | Descrição |
-| --- | --- | --- |
+|---|---|---|
 | POST | `/usuario/cadastrar` | Cadastra um novo usuário |
 | GET | `/usuario/listar` | Lista todos os usuários |
 | GET | `/usuario/buscar/:id` | Busca um usuário pelo ID |
 | PUT | `/usuario/atualizar/:id` | Atualiza um usuário |
 | DELETE | `/usuario/excluir/:id` | Exclui um usuário |
 
-### Autenticação — `/auth`
+---
+
+## Autenticação
+
 | Método | Rota | Descrição |
-| --- | --- | --- |
+|---|---|---|
 | POST | `/auth/login` | Realiza login e retorna um token JWT |
 | GET | `/auth/usuario` | Retorna os dados do usuário autenticado |
 | POST | `/auth/logout` | Realiza logout |
 
-### Produtos — `/produto`
+---
+
+## Produtos
+
 | Método | Rota | Descrição |
-| --- | --- | --- |
+|---|---|---|
 | POST | `/produto/cadastrar` | Cadastra um novo produto |
 | GET | `/produto/listar` | Lista todos os produtos |
 | GET | `/produto/buscar/:id` | Busca um produto pelo ID |
 | PUT | `/produto/atualizar/:id` | Atualiza um produto |
-| DELETE | `/produto/excluir/:id` | Exclui um produto (bloqueado se houver produções vinculadas) |
+| DELETE | `/produto/excluir/:id` | Exclui um produto |
 
-### Produção — `/producao`
+---
+
+## Produção
+
 | Método | Rota | Descrição |
-| --- | --- | --- |
-| POST | `/producao/cadastrar` | Registra uma movimentação (`fabricado` ou `pedido`) e atualiza o estoque |
-| GET | `/producao/listar` | Lista todas as movimentações, com produto e usuário |
-| GET | `/producao/buscar/:id` | Busca uma movimentação pelo ID |
+|---|---|---|
+| POST | `/producao/cadastrar` | Registra uma movimentação |
+| GET | `/producao/listar` | Lista todas as movimentações |
+| GET | `/producao/buscar/:id` | Busca uma movimentação |
 | PUT | `/producao/atualizar/:id` | Atualiza uma movimentação |
 | DELETE | `/producao/excluir/:id` | Exclui uma movimentação |
 
-## Screenshots
+---
 
-Testes dos endpoints realizados com o Insomnia.
+# Screenshots
 
-**Usuários**
+Os testes da API foram realizados utilizando o **Insomnia**.
 
-| Cadastrar | Listar | Buscar |
-| --- | --- | --- |
-| ![Cadastrar usuário](assets/Captura%20de%20tela%202026-09-04%20084836.png) | ![Listar usuários](assets/Captura%20de%20tela%202026-09-04%20084928.png) | ![Buscar usuário](assets/Captura%20de%20tela%202026-09-04%20084956.png) |
+## Usuários
 
-| Atualizar | Excluir |
-| --- | --- |
-| ![Atualizar usuário](assets/Captura%20de%20tela%202026-09-04%20085219.png) | ![Excluir usuário](assets/Captura%20de%20tela%202026-09-04%20085246.png) |
+### Cadastrar usuário
 
-**Produtos**
+![Cadastrar usuário](assets/Captura%20de%20tela%202026-09-04%20084836.png)
 
-| Cadastrar | Buscar |
-| --- | --- |
-| ![Cadastrar produto](assets/Captura%20de%20tela%202026-09-04%20085731.png) | ![Buscar produto](assets/Captura%20de%20tela%202026-09-04%20090114.png) |
+### Listar usuários
 
-| Atualizar | Excluir |
-| --- | --- |
-| ![Atualizar produto](assets/Captura%20de%20tela%202026-09-04%20090559.png) | ![Excluir produto](assets/Captura%20de%20tela%202026-09-04%20090651.png) |
+![Listar usuários](assets/Captura%20de%20tela%202026-09-04%20084928.png)
 
-**Produção**
+### Buscar usuário
 
-| Listar | Buscar |
-| --- | --- |
-| ![Listar movimentações](assets/Captura%20de%20tela%202026-09-04%20101208.png) | ![Buscar movimentação](assets/Captura%20de%20tela%202026-09-04%20101224.png) |
+![Buscar usuário](assets/Captura%20de%20tela%202026-09-04%20084956.png)
 
-| Cadastrar | Excluir |
-| --- | --- |
-| ![Cadastrar movimentação](assets/Captura%20de%20tela%202026-09-04%20101236.png) | ![Excluir movimentação](assets/Captura%20de%20tela%202026-09-04%20101257.png) |
+### Atualizar usuário
+
+![Atualizar usuário](assets/Captura%20de%20tela%202026-09-04%20085219.png)
+
+### Excluir usuário
+
+![Excluir usuário](assets/Captura%20de%20tela%202026-09-04%20085246.png)
+
+---
+
+## Produtos
+
+### Cadastrar produto
+
+![Cadastrar produto](assets/Captura%20de%20tela%202026-09-04%20085731.png)
+
+### Buscar produto
+
+![Buscar produto](assets/Captura%20de%20tela%202026-09-04%20090114.png)
+
+### Atualizar produto
+
+![Atualizar produto](assets/Captura%20de%20tela%202026-09-04%20090559.png)
+
+### Excluir produto
+
+![Excluir produto](assets/Captura%20de%20tela%202026-09-04%20090651.png)
+
+---
+
+## Produção
+
+### Listar movimentações
+
+![Listar movimentações](assets/Captura%20de%20tela%202026-09-04%20101208.png)
+
+### Buscar movimentação
+
+![Buscar movimentação](assets/Captura%20de%20tela%202026-09-04%20101224.png)
+
+### Cadastrar movimentação
+
+![Cadastrar movimentação](assets/Captura%20de%20tela%202026-09-04%20101236.png)
+
+### Excluir movimentação
+
+![Excluir movimentação](assets/Captura%20de%20tela%202026-09-04%20101257.png)
+
+---
+
+## Testes da API
+
+Os endpoints foram testados utilizando o **Insomnia**.
+
+Foram realizados testes de:
+
+- Cadastro
+- Listagem
+- Busca
+- Atualização
+- Exclusão
+- Login
+- Autenticação
+- Movimentações de produção
+
+---
+
+## Autor
+
+Projeto desenvolvido para fins acadêmicos.
+
+**Just in Time — Sistema de Controle de Estoque e Produção**
